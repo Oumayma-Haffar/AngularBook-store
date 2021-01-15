@@ -1,0 +1,44 @@
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>id</td>
+            <td>author</td>
+            <td>price</td>
+            <td>releasedate</td>
+            <td>author</td>
+                <td>Quantity</td>
+                <td colspan="1">Actions</td>
+            </tr>
+        </thead>
+      
+        <tbody>
+            <tr *ngFor="let book of books">
+                <td>{{book.id }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.price }} DT </td>
+                <td>{{ book.releasedate}}</td>
+                <td>{{ book.title }} </td>
+                <td>{{ quantities[books.indexOf(book)] }} </td>
+                <td><a  routerLink ="/Books/panier" routerLinkActive="active" (click)="delete(book.id)" class="btn btn-danger">Remove</a></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Total: </b></td>
+                <td>{{ total }} DT</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<a  routerLink ="/Books/panier" routerLinkActive="active">
+
+<button (click)="purchase()" class="btn btn-info" routerLink ="/Books/total"  >Purchase</button>
+</a>

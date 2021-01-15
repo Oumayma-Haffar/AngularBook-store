@@ -1,0 +1,59 @@
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">author</label>
+          <input type="text" class="form-control" 
+            formControlName="author" 
+            #author />
+        </div>
+        <div *ngIf="angForm.controls['author'].invalid && (angForm.controls['author'].dirty || angForm.controls['author'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['author'].errors!.required">
+            author is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">price</label>
+          <input class="form-control" 
+          formControlName="price" 
+          #price/>
+        </div>
+        <div *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || angForm.controls['price'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['price'].errors!.required">
+            price is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">releasedate</label>
+          <input type="date" class="form-control" 
+            formControlName="releasedate" 
+            #releasedate
+          />
+        </div>
+        <div *ngIf="angForm.controls['releasedate'].invalid && (angForm.controls['releasedate'].dirty || angForm.controls['releasedate'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['releasedate'].errors!.required">
+            releasedate is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">title</label>
+          <input type="text" class="form-control" 
+            formControlName="title" 
+            #title
+          />
+        </div>
+        <div *ngIf="angForm.controls['title'].invalid && (angForm.controls['title'].dirty || angForm.controls['title'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['title'].errors!.required">
+            releasedate is required.
+          </div>
+        </div>
+        <div class="form-group">
+            <a class="nav-link" routerLink ="/dashboard/books" routerLinkActive="active" >
+          <button (click) = "addBook(author.value, price.value, releasedate.value,title.value)" type="submit" class="btn btn- btn-lg btn-block"[disabled]="angForm.pristine || angForm.invalid" >
+            add
+          </button>
+        </a>
+        </div>
+      </form>
+    </div>
+  </div>

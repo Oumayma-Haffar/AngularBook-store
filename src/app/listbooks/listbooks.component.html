@@ -1,0 +1,18 @@
+
+ <div class="col-md-2">
+    <h2>  Books</h2>
+</div>
+<div class="row">
+<div *ngFor="let Book of books" class="card" style="width: 18rem;" class="col-sm-4">
+    <img class="card-img-top" src="../assets/book.jpeg" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">{{ Book.title }}</h4>
+      <p class="card-text"> this Book was written  by "{{ Book.author }}" and released at {{ Book.releasedate }} <br><h5>Price : {{ Book.price }}</h5></p>
+      <input type="number" #quantity value="1" min="1" max="5">&nbsp;
+      <a (click)="addToCart(Book.id,quantity.value)" class="btn btn-info">Add Cart</a>
+    </div>
+  </div>
+  </div>
+     
+
+
